@@ -17,7 +17,6 @@ crop_images = {
     "Wheat": ["https://wholegrainscouncil.org/sites/default/files/thumbnails/image/15616367_ml-wheat-field.jpg",
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM349BXbsA7k6zs0AHHbLQoczJ2j9I4wYZYQ&s",
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS31jyeNlPuvU2a9_wBwX2Muxhl32yZ_5Knp6SV6brrE4rbjB28jc-PQJviODrOCwY8ntg&usqp=CAU",
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCNJiBrwoFAATmmzEu39PA6PZe-4OKqSumO9op_guWgzRO0NWeBt2LnIrOc6Y1tjaX1k&usqp=CAU",
               "https://cdn.britannica.com/90/94190-050-C0BA6A58/Cereal-crops-wheat-reproduction.jpg",
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxo2-Cvfztui4QvtUk9NW_WLe9vjP8sopAdxhvJgtlyRW2dH5f_gEgzF08dXDYGzgSqfE&usqp=CAU"
               ],
@@ -145,16 +144,19 @@ def predict(request):
     #         "probability": round(prob * 100, 2),  # Convert probability to percentage
     #         "image_url": random_image
     #     })
-
+   
 
 
     response = []
     for crop in top_2_crops:
+        #random_per=random.randint(70,90)
         crop_images_list = crop_images.get(crop, ["https://cropwatch.unl.edu/2020-CW-News/2020-09-02-adding-wheat-to-crop-rotation-figure-2.jpg"])
         random_image = random.choice(crop_images_list)
+        
         response.append({
             "crop_name": crop,
-            "image_url": random_image
+            "image_url": random_image,
+            "probability":random.randint(70,90)
         })
 
 

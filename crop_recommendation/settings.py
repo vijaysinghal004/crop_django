@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'crop_detail',
+    'soil_npk'
 ]
 
 MIDDLEWARE = [
